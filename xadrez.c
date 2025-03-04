@@ -6,7 +6,8 @@
 
 int main() {
     
-    int bispo = 1, torre = 1, rainha = 1;
+    int bispo = 1, torre = 1, rainha = 1, cavalo = 1; //define a variavel de cada peça do tabuleiro, será usado para testar a condição e fazer o devido loop.
+    
     printf("Movimentação do Bispo: \n");
     while (bispo <= 5)
     {
@@ -14,7 +15,7 @@ int main() {
         printf("Cima, direita!\n");
         bispo ++;
     }
-    
+//Roda 5 vezes o código "cima direita", e incrementa +1 a variavel bispo a cada vez que roda, atingindo o limite de 5, para de rodar    
     printf("\nMovimentação da Torre: \n");
 
     do
@@ -22,35 +23,26 @@ int main() {
         printf("Direita!\n");
         torre ++;
     } while (torre <= 5);
-
+    //Roda 5 vezes o código "direita", e incrementa +1 a variavel torre a cada vez que roda, atingindo o limite de 5, para de rodar    
     printf("\nMovimentação da Rainha: \n");
 
     for(rainha; rainha <= 8; rainha++){
         printf("Esquerda!\n");
     }
-    
-    
-    
-    
-    
-    
-    
-    
-    
-    
-    // Nível Novato - Movimentação das Peças
-    // Sugestão: Declare variáveis constantes para representar o número de casas que cada peça pode se mover.
+    //Roda 8 vezes o código "esquerda", e incrementa +1 a variavel rainha a cada vez que roda, atingindo o limite de 8, para de rodar
+    printf("\nMovimentação do Cavalo: \n");
+    while (cavalo >= 1)
+    {
+        for (int i = 0; i < 2; i++)
+        {
+        printf("Cima\n");
+        }
+        cavalo--;
+        printf("Direita\n");
+    }
+    //Roda o loop externo(while) 1 vez e i loop interno (for) 2 vezes, ambos definidos pelo numero da variavel + incremento ou decremento a cada vez que roda.
 
-    // Implementação de Movimentação do Bispo
-    // Sugestão: Utilize uma estrutura de repetição para simular a movimentação do Bispo em diagonal.
-
-    // Implementação de Movimentação da Torre
-    // Sugestão: Utilize uma estrutura de repetição para simular a movimentação da Torre para a direita.
-
-    // Implementação de Movimentação da Rainha
-    // Sugestão: Utilize uma estrutura de repetição para simular a movimentação da Rainha para a esquerda.
-
-
+    
 
     return 0;
 }
