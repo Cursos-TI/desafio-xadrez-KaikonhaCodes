@@ -4,45 +4,82 @@
 // Este código inicial serve como base para o desenvolvimento do sistema de movimentação das peças de xadrez.
 // O objetivo é utilizar estruturas de repetição e funções para determinar os limites de movimentação dentro do jogo.
 
-int main() {
-    
-    int bispo = 1, torre = 1, rainha = 1, cavalo = 1; //define a variavel de cada peça do tabuleiro, será usado para testar a condição e fazer o devido loop.
-    
-    printf("Movimentação do Bispo: \n");
-    while (bispo <= 5)
-    {
-       
-        printf("Cima, direita!\n");
-        bispo ++;
-    }
-//Roda 5 vezes o código "cima direita", e incrementa +1 a variavel bispo a cada vez que roda, atingindo o limite de 5, para de rodar    
-    printf("\nMovimentação da Torre: \n");
-
-    do
+void funcaotorre(int movetorre)
+{
+    if(movetorre >= 5)
     {
         printf("Direita!\n");
-        torre ++;
-    } while (torre <= 5);
-    //Roda 5 vezes o código "direita", e incrementa +1 a variavel torre a cada vez que roda, atingindo o limite de 5, para de rodar    
-    printf("\nMovimentação da Rainha: \n");
-
-    for(rainha; rainha <= 8; rainha++){
-        printf("Esquerda!\n");
+        funcaotorre (movetorre - 1);
     }
-    //Roda 8 vezes o código "esquerda", e incrementa +1 a variavel rainha a cada vez que roda, atingindo o limite de 8, para de rodar
-    printf("\nMovimentação do Cavalo: \n");
-    while (cavalo >= 1)
+} //Movimentação da torre em uma função de maneira recursiva
+
+void funcaorainha(int moverainha)
+{
+    if(moverainha > 0)
     {
-        for (int i = 0; i < 2; i++)
-        {
-        printf("Cima\n");
-        }
-        cavalo--;
-        printf("Direita\n");
+        printf("Esquerda!\n");
+        funcaorainha (moverainha - 1);
     }
-    //Roda o loop externo(while) 1 vez e i loop interno (for) 2 vezes, ambos definidos pelo numero da variavel + incremento ou decremento a cada vez que roda.
+} //Movimentação da rainha em uma função de maneira recursiva
 
+void funcaobispo(int movimentocima, int movimentodireita)
+{
+    int i = 0;
+    while(i < movimentocima)
+    {
+        printf("Cima, ");
+        int j = 0;
+        while (j < movimentodireita)
+        {
+            printf("Direita!\n");
+            j++;
+        }
+        i++;
+    }
+} //função da movimentação do bispo, com loops aninhados, cada vez que o loop externo rodar 1 vez, ele roda também o interno, até atingir o limite setado na hora de chamar a função na main
+
+
+
+
+int main() {
     
+    int bispo = 1, torre = 9, rainha = 8, cavalo = 1; //define a variavel de cada peça do tabuleiro, será usado para testar a condição e fazer o devido loop.
+    
+    printf("Movimentação bispo: \n");
+    funcaobispo(5,1); //Movimentação do bispo em função com loops aninhados
+       
+    printf("\nMovimentação da torre: \n");
+    
+    funcaotorre(torre); //Movimentação da torre em função de maneira recursiva
+    
+    printf("\nMovimentação da Rainha: \n");
+    
+    funcaorainha(rainha); //Movimentação da rainha em função de maneira recursiva
+    
+   
+   printf("\nMovimentação do Cavalo: \n");
+    int i = 2, j = 1;
+    
+    while (i > 0 || j > 0)
+    {
+        if (i > 0)
+        {
+            printf("Cima\n");
+            i--;
+        }else if (j > 0)
+        {
+            printf("Direita!\n");
+            printf("\n");
+            j--;
+        }
+        
+        
+    }
+    
+   
+
 
     return 0;
 }
+
+
